@@ -30,7 +30,7 @@ d3.json(query).then(function (data){
     Plotly.newPlot("bar", chartData, layout);
 
     //Create the default bubble chart for Test Subject "940"
-    let info = data.samples[0]
+    let info = data.metadata[0]
     let bubbleData = [{
         x: subject1[1],
         y: subject1[0],
@@ -68,7 +68,7 @@ d3.json(query).then(function (data){
             axis: { range: [null, 9], tickwidth: 1, tickcolor: "darkblue" },
             bgcolor: "white",
             borderwidth: 2,
-            bar: {"color":"yellow", "width":"19"},
+            bar: {"color":"yellow"},
             bordercolor: "gray",
             steps: [
               { range: [0, 1], color: "saddlebrown" },
