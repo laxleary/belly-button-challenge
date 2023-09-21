@@ -100,6 +100,17 @@ d3.json(query).then(function (data){
         Plotly.restyle("bar", "y", [labels]);
         Plotly.restyle("bar", "text", [hoverText]);
 
+        //Change the bubble chart
+        let yNumbers = dataset.sample_values
+        let xNumbers = dataset.otu_ids
+        let classifications = dataset.otu_labels
+
+        Plotly.restyle("bubble", "x", [xNumbers])
+        Plotly.restyle("bubble", "y", [yNumbers])
+        Plotly.restyle("bubble", "marker.size", [yNumbers])
+        Plotly.restyle("bubble", "text", [classifications])
+        Plotly.restyle("bubble", "marker.color", [xNumbers])
+
         //Change the demographics
         d3.select("#sample-metadata").text("ID: " +info.id);
         d3.select("#sample-metadata").append("text").html("<br> <b>Ethnicity:</b> " + info.ethnicity + 
