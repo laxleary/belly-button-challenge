@@ -13,4 +13,4 @@ The following code was developed solely by me, with no assistance from TAs, peer
 - A study relating wash frequency with number of species found in samples (length of sample_values), or even just sample_values might also yield interesting results. 
 
 ### References
-Hulcr, J. et al. (2012) A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable. Retrieved from: [Rob Dunn Lab](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/Links) to an external site.
+Hulcr, J. et al. (2012) A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable. Retrieved from: [Rob Dunn Lab](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/Links) to an external site. 

@@ -8,6 +8,7 @@ d3.json(query).then(function (data){
 
     //Prepare Test Subject "940" data
     let subject1 = [data.samples[0].sample_values, data.samples[0].otu_ids, data.samples[0].otu_labels];
+    
     //Create the default bar chart for Test Subject "940"
     let chartData = [{
         x: subject1[0].slice(0,10).reverse(),
