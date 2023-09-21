@@ -100,7 +100,7 @@ d3.json(query).then(function (data){
     
 
     //Create drop-down menu options
-    for (let i = 0; i <= data.names.length; i++){
+    for (let i = 0; i < data.names.length; i++){
         let option =d3.select("#selDataset").append("option");
         option.text(data.names[i])
     };
