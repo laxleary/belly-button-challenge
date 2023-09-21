@@ -56,6 +56,40 @@ d3.json(query).then(function (data){
     }
 
     Plotly.newPlot("bubble", bubbleData, layout2);
+     
+    //Create the gauge chart for Test Subject "940"
+    let gaugeData= [
+        {
+          type: "indicator",
+          mode: "gauge+number",
+          value: data.metadata[0].wfreq,
+          title: { text: "Belly Button Washing Frequency (per week)", font: { size: 16 } },
+          gauge: {
+            axis: { range: [null, 9], tickwidth: 1, tickcolor: "darkblue" },
+            bgcolor: "white",
+            borderwidth: 2,
+            bar: {"color":"yellow", "width":"19"},
+            bordercolor: "gray",
+            steps: [
+              { range: [0, 1], color: "saddlebrown" },
+              { range: [1, 2], color: "sienna" },
+              { range: [2, 3], color: "tan" },
+              { range: [3, 4], color: "blanchedalmond" },
+              { range: [4, 5], color: "beige" },
+              { range: [5, 6], color: "white" },
+              { range: [6, 7], color: "palegreen" },
+              { range: [7, 8], color: "lightgreen" },
+              { range: [8, 9], color: "green" }
+            ],
+          }
+        }
+      ];
+    
+    layout3 ={
+
+    }
+
+    Plotly.newPlot("gauge", gaugeData, layout3);
 
     //Make the original demographics Table
     d3.select("#sample-metadata").text("ID: " +info.id);
@@ -84,12 +118,12 @@ d3.json(query).then(function (data){
             if (data.samples[i].id==datafinder){
                 dataset = data.samples[i]
         }};
-        let info = Object
+        let info2 = Object
         for (let i = 0; i < data.samples.length; i ++){
             if (data.metadata[i].id==datafinder){
-                info = data.metadata[i]
+                info2 = data.metadata[i]
         }};
-        console.log(info)
+        
 
         //Change the bar chart
         let values = dataset.sample_values.slice(0,10).reverse()
@@ -112,12 +146,16 @@ d3.json(query).then(function (data){
         Plotly.restyle("bubble", "marker.color", [xNumbers])
 
         //Change the demographics
-        d3.select("#sample-metadata").text("ID: " +info.id);
-        d3.select("#sample-metadata").append("text").html("<br> <b>Ethnicity:</b> " + info.ethnicity + 
-            "<br> <b>Age:</b> " +info.age+ "<br> <b>Gender:</b> " + info.gender + "<br><b> Location:</b> " + 
-            info.location + "<br> <b> Button Type: </b> "+  info.bbtype + "<br> <b>Wash Frequency:</b> " + info.wfreq);
+        d3.select("#sample-metadata").text("ID: " +info2.id);
+        d3.select("#sample-metadata").append("text").html("<br> <b>Ethnicity:</b> " + info2.ethnicity + 
+            "<br> <b>Age:</b> " +info2.age+ "<br> <b>Gender:</b> " + info2.gender + "<br><b> Location:</b> " + 
+            info2.location + "<br> <b> Button Type: </b> "+  info2.bbtype + "<br> <b>Wash Frequency:</b> " + info2.wfreq);
 
+        //Change the gauge
+        Plotly.restyle("gauge", "value", [info2.wfreq])
         };
+
+
 });
 
 
